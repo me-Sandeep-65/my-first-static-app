@@ -1,0 +1,9 @@
+
+type feedback @model {
+  id: ID
+  Name: String
+  mailId: String
+  mob: Int
+  message: String
+}
+
