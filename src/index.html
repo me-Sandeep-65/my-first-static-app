@@ -24,10 +24,30 @@
   </div>
 </main>
   <script>
-  (async function() {
-      const { text } = await( await fetch(`/api/message`)).json();
-      document.querySelector('#name').textContent = text;
-  }());
+      async function list() {
+
+    const query = `
+        {
+          feedback {
+            parts {
+              id
+              Name
+              mailId
+              mob
+              message
+            }
+          }
+        }`;
+        
+    const endpoint = "/data-api/graphql";
+    const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: query })
+    });
+    const result = await response.json();
+    console.table(result.data.feedback.parts);
+    }
   </script>
 </body>
 
