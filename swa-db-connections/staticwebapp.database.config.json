@@ -6,7 +6,7 @@
       "database": "MyTestPersonDatabase",
       "schema": "staticwebapp.database.schema.gql"
     },
-    "connection-string": "AccountEndpoint=https://database-azure.documents.azure.com:443/;AccountKey=dZ2VAEKinmlo2ozoGJnulUCGil7Jpx3yT1AShEpijUNmVwee0f6ZoqaGJs6pnCNfL1bWB8f1PkKhACDbE0R0ZA==;"
+    "connection-string": "AccountEndpoint=https://database-azure.documents.azure.com:443/;AccountKey=rOTf41SxOvNYWilTLj95Xzi1eh5wGK1VGZXfCKlATXBt3HUw0jv90IuGE9pKiacT8mrCS2VbkiZ5ACDbBkAR7A==;"
   },
   "runtime": {
     "graphql": {
