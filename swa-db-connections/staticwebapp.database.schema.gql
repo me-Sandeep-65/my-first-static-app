@@ -1,9 +1,4 @@
-
-type feedback @model {
+type Person @model {
   id: ID
   Name: String
-  mailId: String
-  mob: Int
-  message: String
 }
-
