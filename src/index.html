@@ -80,6 +80,40 @@ async function del() {
   const result = await response.json();
   console.log(`Record deleted: ${ JSON.stringify(result.data) }`);
 }
+
+
+async function create() {
+
+  const data = {
+    id: "3",
+    Name: "Pedro"
+  };
+
+  const gql = `
+    mutation create($item: CreatePersonInput!) {
+      createPerson(item: $item) {
+        id
+        Name
+      }
+    }`;
+  
+  const query = {
+    query: gql,
+    variables: {
+      item: data
+    } 
+  };
+  
+  const endpoint = "/data-api/graphql";
+  const result = await fetch(endpoint, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(query)
+  });
+
+  const response = await result.json();
+  console.table(response.data.createPerson);
+}
   </script>
 </body>
 
