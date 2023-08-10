@@ -47,6 +47,7 @@ const response = await fetch(endpoint, {
 });
 const result = await response.json();
 console.table(result.data.people.items);
+console.log(result.data.people.items);
 }
   </script>
 </body>
