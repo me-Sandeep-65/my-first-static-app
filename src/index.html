@@ -47,13 +47,13 @@ const response = await fetch(endpoint, {
 });
 const result = await response.json();
 console.table(result.data.people.items);
-window.alert(result.data.people.items);
+window.alert(result.data.people.items.Name);
 }
 
 
 async function del() {
 
-  const id = '2';
+  const id = "2";
 
   const gql = `
     mutation del($id: ID!, $_partitionKeyValue: String!) {
@@ -85,8 +85,8 @@ async function del() {
 async function create() {
 
   const data = {
-    id: "3",
-    Name: "garry"
+    id: "5",
+    Name: "harry"
   };
 
   const gql = `
@@ -113,6 +113,13 @@ async function create() {
 
   const response = await result.json();
   console.table(response.data.createPerson);
+  if (createPerson) {
+    console.log("user created");
+    alert("user created");
+  }else{
+    console.log("user not created");
+    alert("user not created");
+  }
 }
   </script>
 </body>
