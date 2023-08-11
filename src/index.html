@@ -47,7 +47,9 @@ const response = await fetch(endpoint, {
 });
 const result = await response.json();
 console.table(result.data.people.items);
-window.alert(result.data.people.items);
+console.log("new exp");
+console.table(result.data.people.items[1]);
+window.alert(result.data.people.items[1]);
 }
 
 
@@ -78,7 +80,7 @@ async function del() {
   });
 
   const result = await response.json();
-  console.log(`Record deleted: ${ JSON.stringify(result) }`);
+  console.log(`Record deleted: ${ JSON.stringify(result.data.deletePerson) }`);
 }
 
 
