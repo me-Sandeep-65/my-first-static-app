@@ -48,8 +48,8 @@ const response = await fetch(endpoint, {
 const result = await response.json();
 console.table(result.data.people.items);
 console.log("new exp");
-console.table(result.data.people.items[1]);
-window.alert(result.data.people.items[1]);
+console.table(result.data.people.items[1].Name);
+window.alert(JSON.stringify(result.data.people.items[1]));
 }
 
 
@@ -80,7 +80,7 @@ async function del() {
   });
 
   const result = await response.json();
-  console.log(`Record deleted: ${ JSON.stringify(result.data.deletePerson) }`);
+  console.log(`Record deleted: ${ JSON.stringify(result.data) }`);
 }
 
 
