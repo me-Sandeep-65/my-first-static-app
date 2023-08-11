@@ -28,7 +28,6 @@ async function list() {
 
 const query = `
     {
-      people {
         items {
           id
           Name
@@ -36,7 +35,6 @@ const query = `
           mobile
           message
         }
-      }
     }`;
     
 const endpoint = "/data-api/graphql";
@@ -46,8 +44,8 @@ const response = await fetch(endpoint, {
     body: JSON.stringify({ query: query })
 });
 const result = await response.json();
-console.table(result.data.people.items);
-window.alert(result.data.people.items.Name);
+console.table(result.data.items);
+window.alert(result.data.items);
 }
 
 
@@ -59,6 +57,7 @@ async function del() {
     mutation del($id: ID!, $_partitionKeyValue: String!) {
       deletePerson(id: $id, _partitionKeyValue: $_partitionKeyValue) {
         id
+        _partitionKeyValue
       }
     }`;
 
@@ -113,7 +112,7 @@ async function create() {
 
   const response = await result.json();
   console.table(response.data.createPerson);
-  if (createPerson) {
+  if (response.data.createPerson) {
     console.log("user created");
     alert("user created");
   }else{
